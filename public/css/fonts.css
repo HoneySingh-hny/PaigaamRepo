@@ -1,0 +1,16 @@
+/* Medici font. Put your licensed font file in /public/fonts/ (see fonts/README.txt). */
+@font-face {
+  font-family: 'Medici';
+  src: local('Medici'), local('Medici Text'),
+       url('../fonts/Medici.woff2') format('woff2'),
+       url('../fonts/Medici.woff') format('woff'),
+       url('../fonts/Medici.otf') format('opentype'),
+       url('../fonts/Medici.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+:root {
+  /* Every element inherits this one variable, so changing the font is a one-line edit. */
+  --font: 'Medici', 'Medici Text', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "paigaam",
+  "version": "1.0.0",
+  "description": "Paigaam - a real-time chat application (First Commit hackathon)",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=22.13.0" },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node scripts/smoke-test.js"
+  }
+}

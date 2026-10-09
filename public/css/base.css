@@ -1,0 +1,50 @@
+:root {
+  --blue: #2563eb; --blue-600: #1d4ed8; --blue-soft: #e8f0ff; --sky: #38bdf8;
+  --bg: #eef4ff; --surface: #ffffff; --chat-bg: #f3f6fb;
+  --text: #0f172a; --muted: #64748b; --line: #e6ecf5; --green: #22c55e; --danger: #e11d48;
+  --radius: 18px; --shadow: 0 10px 30px rgba(37, 99, 235, .10);
+}
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body {
+  font-family: var(--font); color: var(--text); font-size: 16px; line-height: 1.4;
+  background: radial-gradient(900px 500px at 15% -10%, #d6e4ff 0, transparent 60%),
+              radial-gradient(800px 500px at 100% 110%, #c9f0fb 0, transparent 55%), var(--bg);
+  -webkit-font-smoothing: antialiased; overflow: hidden;
+}
+/* The Medici font applies to everything, including form controls. */
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; border: 0; background: none; }
+svg.icon { width: 1.25em; height: 1.25em; flex: none; }
+#app { height: 100%; }
+.hidden { display: none !important; }
+
+.btn {
+  position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 22px; border-radius: 14px; background: var(--blue); color: #fff; font-weight: 600;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, .28); transition: transform .15s, background .2s, box-shadow .2s;
+}
+.btn:hover { background: var(--blue-600); transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+.btn[disabled] { opacity: .65; pointer-events: none; }
+.btn.ghost { background: var(--blue-soft); color: var(--blue); box-shadow: none; }
+.btn .ripple { position: absolute; border-radius: 50%; background: rgba(255,255,255,.45); transform: scale(0); animation: ripple .6s ease-out; pointer-events: none; }
+@keyframes ripple { to { transform: scale(4); opacity: 0; } }
+.spinner { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.icon-btn { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: var(--muted); transition: background .15s, color .15s; }
+.icon-btn:hover { background: var(--blue-soft); color: var(--blue); }
+
+.avatar { position: relative; flex: none; display: grid; place-items: center; border-radius: 50%; color: #fff; font-weight: 700; user-select: none; }
+.avatar .dot { position: absolute; right: 0; bottom: 0; width: 28%; height: 28%; min-width: 9px; min-height: 9px; border-radius: 50%; background: var(--green); border: 2px solid #fff; }
+.avatar.ring { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--blue); }
+
+#toasts { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); z-index: 100; display: grid; gap: 8px; justify-items: center; pointer-events: none; }
+.toast { background: #0f172a; color: #fff; padding: 10px 16px; border-radius: 12px; font-size: 14px; box-shadow: 0 10px 30px rgba(0,0,0,.25); animation: pop .25s ease; }
+.toast.error { background: var(--danger); }
+@keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.96); } }
+
+.overlay { position: fixed; inset: 0; z-index: 50; background: rgba(15, 23, 42, .45); backdrop-filter: blur(4px); display: grid; place-items: center; padding: 16px; animation: fade .2s; }
+@keyframes fade { from { opacity: 0; } }
+.dialog { width: min(440px, 100%); max-height: min(640px, 90dvh); display: flex; flex-direction: column; background: #fff; border-radius: 22px; box-shadow: 0 30px 80px rgba(15,23,42,.3); animation: pop .25s ease; overflow: hidden; }
